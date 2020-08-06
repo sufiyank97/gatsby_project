@@ -1,0 +1,57 @@
+You can use the following discount codes:
+Virtual201
+Soft201
+
+You can use these setting in the /saveBooking for testing:
+
+cardNumber = "4111111111111111";
+ccv = "123";
+expireMonth = 12;
+expireYear = 2020;
+
+Pass testMode=true in the /saveBooking with the above information.
+
+
+/findDiscount
+
+Search for discount based on discount code.
+
+-eventId
+
+-discountCode
+
+-subTotal
+
+Returns:
+
+-foundType (discount, pass)
+
+-discount
+
+-total
+
+-discountCodeId
+
+-sharePassId
+
+Returns:
+
+-discount object {id,type,code,name}
+
+/saveBooking
+
+Attempt to process credit card and create ticket.
+
+-creditCard (pass the cardId from creditCards (array returned from login))
+
+-cardNumber, cardName, ccv, expireMonth, expireYear ,saveCardForFutureUse, testMode
+
+-userId, eventId, discountId, subTotal, discount, total, name, email
+
+-eventUserId
+
+You can use creditCard field or pass a new credit card. eventUserId can be kept blank. If a discount is provided you need to add the discountId.
+
+Returns:
+
+The confirmation ticket, updated saved credits cards for the user.
